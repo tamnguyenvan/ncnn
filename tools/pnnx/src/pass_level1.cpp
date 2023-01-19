@@ -52,6 +52,8 @@ FuseModulePassRegister::~FuseModulePassRegister()
 
 void pass_level1(const torch::jit::Module& mod, const std::shared_ptr<torch::jit::Graph>& g, const std::vector<std::string>& module_operators, Graph& pg)
 {
+    sprintf("~~~~~~~~~~~~~~~ Pass level 1 ~~~~~~~~~~~~~~~");
+    sprintf("~~~~~~~~~~~~~~~ input size: %d", (int)g->inputs().size());
     for (int i = 1; i < (int)g->inputs().size(); i++)
     {
         const auto& in = g->inputs()[i];
